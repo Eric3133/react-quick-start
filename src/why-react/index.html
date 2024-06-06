@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  the value of the count:<span>0</span>
+  <button onclick = "handleClick()">click</button>
+  <script>
+    let count = 0;
+    function handleClick () {
+      count += 1;
+      const span = document.querySelector('span');
+      // const span = document.getElementsByTagName('span')[0];
+      span.textContent = count;
+    }
+  </script>
+</body>
+</html>
