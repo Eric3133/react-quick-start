@@ -1,29 +1,11 @@
 import './App.css';
-export function Profile () {
-  return (
-    <img src= "https://i.imgur.com/yXOvdOSs.jpg" alt= ''/>
-  )
-};
+import { Profile } from './Gallery.js';
+import Gallery from './Gallery.js';
 
-export function Gallery () {
-  return (
-  <section>
-    <h1>Amazing scientists</h1>
+export default function App() {
+  return(
+    <h1>Gallery</h1>,
+    <Gallery />,
     <Profile />
-    <Profile />
-    <Profile />
-  </section>
   )
 }
-
-function App() {
-  return (
-    <div className="App">
-      <h1>React App</h1>
-      {/* <Profile /> */}
-      <Gallery/>
-    </div>
-  );
-}
-
-export default App;
