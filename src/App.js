@@ -1,48 +1,22 @@
-function Item({isPacked, name}) {
-  // if(isPacked) {
-  //   // return(
-  //   //   <li className="item packed">{name}✔</li>
-  //   // )
-  //   return null
-  // }
-  //   return(
-  //     <li className="item">{name}</li>
-  //   )
-  // return <li className="item">{isPacked? name + '✔' : name}</li>
-  // return <li className="item">
-  //   {isPacked ? (
-  //     <del>
-  //       {name + '✔'}
-  //     </del>
-  //   ):(
-  //     name
-  //   )}
-  // </li>
-  return <li className="item">
-    {name} {isPacked && '✔'}
-  </li>
-}
+import { people } from './data.js';
+import { getImageUrl } from './utils.js';
 
-export default function PackingList() {
-  return (
-    <section>
-      <h1>Sally Ride's Packing List</h1>
-      <ul>
-        <Item
-           isPacked={true}
-           name="Space suit"
-        />
-
-        <Item
-           isPacked={true}
-           name="Helmet with a golden leaf"
-        />
-
-        <Item
-           isPacked={false}
-           name="Photo of Tam"
-        />
-      </ul>
-    </section>
-  )
+export default function List() {
+  const chemists = people.filter(person =>
+    person.profession === 'chemist'
+  );
+  const listItems = chemists.map(person =>
+    <li key = {person.id}>
+      <img
+        src={getImageUrl(person)}
+        alt={person.name}
+      />
+      <p>
+        <b>{person.name}:</b>
+        {' ' + person.profession + ' '}
+        known for {person.accomplishment}
+      </p>
+    </li>
+  );
+  return <ul>{listItems}</ul>;
 }
