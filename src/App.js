@@ -1,22 +1,21 @@
-import { people } from './data.js';
-import { getImageUrl } from './utils.js';
+function Recipe({ drinkers }) {
+  return (
+    <ol>
+      <li>Boil {drinkers} cups of water.</li>
+      <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
+      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+    </ol>
+  );
+}
 
-export default function List() {
-  const chemists = people.filter(person =>
-    person.profession === 'chemist'
+export default function App() {
+  return (
+    <section>
+      <h1>Spiced Chai Recipe</h1>
+      <h2>For two</h2>
+      <Recipe drinkers={2} />
+      <h2>For a gathering</h2>
+      <Recipe drinkers={4} />
+    </section>
   );
-  const listItems = chemists.map(person =>
-    <li key = {person.id}>
-      <img
-        src={getImageUrl(person)}
-        alt={person.name}
-      />
-      <p>
-        <b>{person.name}:</b>
-        {' ' + person.profession + ' '}
-        known for {person.accomplishment}
-      </p>
-    </li>
-  );
-  return <ul>{listItems}</ul>;
 }
